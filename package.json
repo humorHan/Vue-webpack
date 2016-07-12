@@ -1,0 +1,38 @@
+{
+  "name": "vue-webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "humorHan",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^1.0.24",
+    "vue-loader": "^8.2.1",
+    "vue-html-loader": "^1.0.0",
+    "vue-resource": "*",
+    "vue-router": "*",
+    "vuestrap": "^1.0.3",
+    "style-loader": "*",
+    "css-loader": "*",
+    "less-loader": "*",
+    "webpack-stream": "*",
+    "gulp": "^3.9.1",
+    "gulp-less": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-plumber": "*",
+    "vinyl-named": "*",
+    "webpack": "1.13.1",
+    "url-loader": "*",
+    "stylus-loader": "*",
+    "script-loader": "*",
+    "gulp-minify-css": "*",
+    "gulp-uglify": "*",
+    "del": "*",
+    "vinyl-paths": "*",
+    "gulp-rev": "*",
+    "gulp-rev-collector": "*"
+  }
+}

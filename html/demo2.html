@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bundle/css/base.css">
+    <title>demo2-自定义元素</title>
+</head>
+<body>
+<div id="demo2">
+
+</div>
+<ul id="example-2" v-cloak>
+    <li v-for="item in items">
+        {{parentMessage}} - {{$index}} - {{item.message}}
+    </li>
+    <li v-for="(index, item) of items">
+        {{index}} {{item.message}}
+    </li>
+</ul>
+<div class="num" v-cloak>
+    <span v-for="n in 10">{{ n }} </span>
+    <button v-on:click="say('hello!', $event)">Submit</button>
+    <!-- 下面的阻止单击事件冒泡是不是比上边的简单呢  且可串联-->
+    <a v-on:click.stop="doThis"></a>
+    <a v-on:click.stop.prevent="doThat"></a>
+    <!-- 添加事件侦听器时使用 capture 模式 -->
+    <div v-on:click.capture="doThis">...</div>
+    <!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+    <div v-on:click.self="doThat">...</div>
+    <!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
+    <input v-on:keyup.13="submit">
+    <input v-on:keyup.enter="submit">
+</div>
+
+<div class="dom1" v-cloak>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{checked || false}}</label>
+    <!-- 当选中时，`picked` 为字符串 "a" ，：跟输入的没关系
+    v-model 绑定的 value 通常是静态字符串（对于勾选框是逻辑值）-->
+    <input type="radio" v-model="picked" value="a">
+
+    <!--当选中时
+    vm.toggle === vm.a
+       当没有选中时
+    vm.toggle === vm.b-->
+    <input
+            type="checkbox"
+            v-model="toggle"
+            v-bind:true-value="a"
+            v-bind:false-value="b">
+
+    <!-- 当选中时 vm.pick === vm.a-->
+    <input type="radio" v-model="pick" v-bind:value="a">
+    <br/>
+    <!-- 在 "change" 而不是 "input" 事件中更新 -->
+    <input v-model="msg" lazy>
+    <p>{{msg}}</p>
+    <!--延时 + 转换数字 转换为NaN的返回原值
+    注意这个延时是延时写入底层数据  不会延时dom事件
+    如果想延时dom可以用过滤器 <input @keyup="onKeyup | debounce 500">-->
+    <input v-model="age" number debounce="500">
+    <p>{{age}}</p>
+</div>
+
+<!--<script type="text/x-template" id="tpl">
+    <div>{{msg}}</div>
+</script>-->
+<template id="tpl">
+    <div>{{msg}}</div>
+</template>
+<script src="../bundle/js/vendor.js"></script>
+<script src="../bundle/js/vue.js"></script>
+<script src="../bundle/js/demo2.js"></script>
+</body>
+</html>

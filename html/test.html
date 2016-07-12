@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bundle/css/base.css">
+    <title>测试组件</title>
+</head>
+<body>
+<div id="test" v-cloak >
+    <!--父页面-->
+    <self></self>
+</div>
+<div id="test2">
+    <!--掉用组件-->
+    <menu></menu>
+</div>
+<div id="test3">
+
+</div>
+
+<template id="self">
+    <div class="没这个div会报错，为毛呢">
+        <ul v-for="item of items">
+            <li>{{item}}</li>
+        </ul>
+    </div>
+</template>
+<script src="../bundle/js/vendor.js"></script>
+<script src="../bundle/js/test.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bundle/css/base.css">
+    <title>demo</title>
+</head>
+<body>
+<div id="demo">
+    <!--<p>{{message}}</p>-->
+    <input v-model="message">
+    <button v-on:click="changeMessage">更改</button>
+    <button v-on:click="add">添加</button>
+    <ul>
+        <li v-for="todo in todos">
+            {{todo.text}}
+            <button  v-on:click="deleteList($index)">删除</button>
+        </li>
+    </ul>
+    <span v-if="isTrue">v-if</span>
+    <button v-on:click="changeTrueFalse">change</button>
+    <br/>
+    <input v-model="firstName">
+    <div>{{firstName}}</div>
+    <div>{{total}}</div>
+    <div class="static" v-bind:class="{
+        'class-a': isA,
+        'class-b': isB
+    }"></div>
+</div>
+<div id="example">
+    a={{a}}, b={{c}}
+</div>
+<script src="../bundle/js/vendor.js"></script>
+<script src="../bundle/js/vue.js"></script>
+<script src="../bundle/js/demo.js"></script>
+</body>
+</html>
